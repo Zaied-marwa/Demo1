@@ -1,0 +1,24 @@
+server:
+    port: 8765
+ 
+eureka:
+    client:
+        serviceUrl:
+             defaultZone: http://localhost:8761/eureka/
+
+zuul:
+  debug:
+    request: true
+  routes:
+    enseignant-service:
+        path: /enseignant-service/**
+        serviceId: enseignant-service
+        stripPrefix: true
+    Specialite-service:
+        path: /Specialite-service/**
+        serviceId: Specialite-service
+        stripPrefix: true
+    ens-spec-composite:
+        path: /ens-spec-composite/**
+        serviceId:  ens-spec-composite
+        stripPrefix: true
